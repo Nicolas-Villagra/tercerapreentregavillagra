@@ -23,7 +23,8 @@ def curso(request):
             return render(request,"gimnasioApp/curso.html", {"mensaje":"Datos Invalidos", "formulario":formulario_curso })
     else:
         formulario_curso=CursosForm()
-        return render(request,"gimnasioApp/curso.html", {"formulario":formulario_curso})
+        curso=cursos.objects.all()
+        return render(request,"gimnasioApp/curso.html", {"formulario":formulario_curso, "curso":cursos})
 
 
 def profesor(request):
@@ -115,4 +116,14 @@ def suplemento(request):
         return render (request, "gimnasioApp/suplementos.html", {"mensaje":mensaje,"formulario": formulario_suplemento})
     else:
         formulario_suplemento=SuplementosForm()
-    return render (request, "gimnasioApp/suplementos.html",{"formulario": formulario_suplemento})
+
+        suplemento=suplementos.objects.all()
+    return render (request, "gimnasioApp/suplementos.html",{"formulario": formulario_suplemento, "suplementos":suplemento})
+
+
+
+#def listar_suplemento(request):
+#    Suplemento=suplemento.objects.all()
+#    respuesta=""
+ #   for Suplemento in suplemento:
+  #      respuesta+=f" {Suplemento.marca} - {Suplemento.origen}"
