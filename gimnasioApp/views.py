@@ -37,13 +37,16 @@ def profesor(request):
            email=info ["email"]
            profesor = profesores (nombre=nombre, apellido=apellido, profesion=profesion, email=email)
            profesor.save()
-           formulario_profesor=ProfesorForm()
-           return render(request, "gimnasioApp/profesor.html", {"mensaje":"Instructor Cargado", "formulario":formulario_profesor})
+           mensaje="Instructor Cargado"
+           
         else:
-           return render (request, "gimnasioApp/profesor.html", {"mensaje":"Datos Invalidos", "formulario":formulario_profesor}) 
+           mensaje="No se pudo Cargar"
+
+        formulario_profesor=ProfesorForm()
+        return render (request, "gimnasioApp/profesor.html", {"mensaje":mensaje, "formulario":formulario_profesor}) 
     else:
         formulario_profesor=ProfesorForm()
-        return render(request, "gimnasioApp/profesor.html", {"formulario": formulario_profesor})
+    return render(request, "gimnasioApp/profesor.html", {"formulario": formulario_profesor})
     
 
 
@@ -61,7 +64,7 @@ def rutina(request):
             
         else:
            mensaje="No se pudo cargar"
-           
+
         formulario_rutina=RutinasForm()
         return render (request, "gimnasioApp/rutina.html", {"mensaje":mensaje,"formulario": formulario_rutina}) 
     else:
