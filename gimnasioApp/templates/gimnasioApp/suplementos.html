@@ -18,9 +18,11 @@
 <table>
     <thead>
         <tr>
-        <tr>Marca</tr>
-        <tr>Origen</tr>
-        <tr>Opciones</tr>
+        <tr>Marca   </tr>
+
+        <tr>Origen  </tr>
+
+        <tr>Opciones  </tr>
         </tr>
     </thead>
     </tbody>
@@ -28,8 +30,9 @@
     {% for suplemento in suplementos %}
     <tr>
         <td>
-            {{ suplemento.marca }}
+            {{ suplemento.nombre }}
         </td>
+
         <td>
             {{ suplemento.origen }}
         </td>

@@ -47,7 +47,8 @@ def profesor(request):
         return render (request, "gimnasioApp/profesor.html", {"mensaje":mensaje, "formulario":formulario_profesor}) 
     else:
         formulario_profesor=ProfesorForm()
-    return render(request, "gimnasioApp/profesor.html", {"formulario": formulario_profesor})
+        profesor=profesores.objects.all()
+    return render(request, "gimnasioApp/profesor.html", {"formulario": formulario_profesor, "profesor": profesores})
     
 
 
@@ -93,8 +94,8 @@ def cliente(request):
         return render (request,"gimnasioApp/cliente.html", {"mensaje":mensaje,"formulario": formulario_clientes})
     else:
         formulario_clientes=ClientesForms()
-
-    return render (request, "gimnasioApp/cliente.html", {"mensaje": formulario_clientes})
+    cliente=clientes.objects.all()
+    return render (request, "gimnasioApp/cliente.html", {"mensaje": formulario_clientes, "cliente": clientes})
         
 
 
@@ -117,8 +118,8 @@ def suplemento(request):
     else:
         formulario_suplemento=SuplementosForm()
 
-        suplemento=suplementos.objects.all()
-    return render (request, "gimnasioApp/suplementos.html",{"formulario": formulario_suplemento, "suplementos":suplemento})
+    suplemento=suplementos.objects.all()
+    return render (request, "gimnasioApp/suplementos.html",{"formulario": formulario_suplemento, "suplemento":suplementos})
 
 
 

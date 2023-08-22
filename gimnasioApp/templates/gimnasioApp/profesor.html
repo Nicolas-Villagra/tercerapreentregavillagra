@@ -15,6 +15,39 @@
 <input type="submit" value="Guardar">
 </form>
 
+<table>
+    <thead>
+        <tr>
+        <tr>Nombre  </tr>
+
+        <tr>Apellido    </tr>
+
+        <tr>Profesion   </tr>
+
+        <tr>Opciones</tr>
+        </tr>
+    </thead>
+    </tbody>
+
+    {% for profesor in profesores %}
+    <tr>
+        <td>
+            {{ profesor.nombre }}
+        </td>
+
+        <td>
+            {{ profesor.apellido }}
+        </td>
+        <td>
+            {{ profesor.direccion }}
+        </td>
+     </tr>
+     {% endfor %}
+     </tbody>
+</table>
+
+
+
 <h3> {{ mensaje }} </h3>
 
 {% endblock %}
