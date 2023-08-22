@@ -15,6 +15,29 @@
 <input type="submit" value="Guardar">
 </form>
 
+<table>
+    <thead>
+        <tr>
+        <tr>Marca</tr>
+        <tr>Origen</tr>
+        <tr>Opciones</tr>
+        </tr>
+    </thead>
+    </tbody>
+
+    {% for suplemento in suplementos %}
+    <tr>
+        <td>
+            {{ suplemento.marca}}
+        </td>
+        <td>
+            {{ suplemento.origen}}
+        </td>
+     </tr>
+     {% endfor %}
+     </tbody>
+</table>
+
 <h3> {{ mensaje }} </h3>
 
 {% endblock %}
