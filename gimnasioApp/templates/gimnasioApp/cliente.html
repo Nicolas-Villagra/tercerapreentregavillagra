@@ -6,15 +6,15 @@
 
 {% block contenidocambia %}
 
-<h3> Formulario </h3>
+<h5> Formulario </h5>
 
 <form action = "{% url 'cliente' %}" method = "POST"> {% csrf_token %}
-
-    {{ formulario.as_p }}
-
+    
+    {{ formulario.as_table }}
+    
 <input type="submit" value="Guardar">
 </form>
 
-<h3> {{ mensaje }} </h3>
+<h5> {{ mensaje }} </h5>
 
 {% endblock %}

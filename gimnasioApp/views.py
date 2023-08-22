@@ -57,13 +57,16 @@ def rutina(request):
             nivel=info["nivel"]
             rutina=rutinas(rutina=rutina, nivel=nivel)
             rutina.save()
-            formulario_rutina=RutinasForm()
-            return render (request, "gimnasioApp/rutina.html", {"mensaje": "Rutina Cargada","formulario": formulario_rutina})
+            mensaje="Rutina Cargada"
+            
         else:
-           return render (request, "gimnasioApp/rutina.html", {"mensaje": "Datos Invalidos","formulario": formulario_rutina}) 
+           mensaje="No se pudo cargar"
+           
+        formulario_rutina=RutinasForm()
+        return render (request, "gimnasioApp/rutina.html", {"mensaje":mensaje,"formulario": formulario_rutina}) 
     else:
         formulario_rutina=RutinasForm()
-        return render (request, "gimnasioApp/rutina.html", {"formulario": formulario_rutina})
+    return render (request, "gimnasioApp/rutina.html", {"formulario": formulario_rutina})
 
 
 def cliente(request):
@@ -77,13 +80,17 @@ def cliente(request):
            direccion=["direccion"]
            cliente= clientes (nombre=nombre, apellido=apellido, celular=celular, direccion=direccion)
            cliente.save()
-           formulario_cliente=ClientesForms()
-           return render (request, "gimnasioApp/cliente.html", {"mensaje":"Cargado", "formulario": formulario_cliente})
+           mensaje="Creado Correctamente"
+          
         else:
-            return render (request, "gimnasioApp/cliente.html",{"mensaje":"Invalido", "formulario": formulario_cliente})
+            mensaje="Datos Incorrectos"
+
+        formulario_clientes=ClientesForms()
+        return render (request,"gimnasioApp/cliente.html", {"mensaje":mensaje,"formulario": formulario_clientes})
     else:
-        formulario_cliente=ClientesForms()
-        return render (request, "gimnasioApp/cliente.html", {"mensaje": formulario_cliente})
+        formulario_clientes=ClientesForms()
+
+    return render (request, "gimnasioApp/cliente.html", {"mensaje": formulario_clientes})
         
 
 
@@ -96,10 +103,13 @@ def suplemento(request):
             origen=form["origen"]
             suplemento= suplementos (marca=marca, origen=origen)
             suplemento.save()
-            formulario_suplemento=SuplementosForm()
-            return render (request, "gimnasioApp/suplementos.html", {"mensaje":"Carga Exitosa", "formulario": formulario_suplemento})
+            mensaje="Cargado"
+            
         else:
-            return render (request, "gimnasioApp/suplementos.html", {"mensaje": "Datos Invalidos","formulario": formulario_suplemento})
+            mensaje=" No se pudo cargar"
+
+        formulario_suplemento=SuplementosForm()
+        return render (request, "gimnasioApp/suplementos.html", {"mensaje":mensaje,"formulario": formulario_suplemento})
     else:
         formulario_suplemento=SuplementosForm()
-        return render (request, "gimnasioApp/suplementos.html",{"formulario": formulario_suplemento})
+    return render (request, "gimnasioApp/suplementos.html",{"formulario": formulario_suplemento})
