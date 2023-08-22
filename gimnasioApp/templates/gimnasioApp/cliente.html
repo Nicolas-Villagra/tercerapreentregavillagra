@@ -1,0 +1,20 @@
+{% extends "gimnasioApp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %} suplementos  {% endblock %}
+
+{% block contenidocambia %}
+
+<h3> Formulario </h3>
+
+<form action = "{% url 'cliente' %}" method = "POST"> {% csrf_token %}
+
+    {{ formulario.as_p }}
+
+<input type="submit" value="Guardar">
+</form>
+
+<h3> {{ mensaje }} </h3>
+
+{% endblock %}
