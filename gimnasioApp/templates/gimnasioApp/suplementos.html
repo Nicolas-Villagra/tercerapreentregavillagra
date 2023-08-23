@@ -8,13 +8,13 @@
 
 <h3> Formulario </h3>
 
-<form action = "{% url 'suplementos' %}" method = "POST"> {% csrf_token %}
+<form action="{% url 'suplementos' %}" method="POST"> {% csrf_token %}
 
     {{ formulario.as_p }}
 
 <input type="submit" value="Guardar">
 </form>
-
+<h3> {{ mensaje }} </h3>
 <table>
     <thead>
         <tr>
@@ -25,8 +25,8 @@
         <tr>Opciones  </tr>
         </tr>
     </thead>
-    </tbody>
 
+    <tbody>
     {% for suplemento in suplementos %}
     <tr>
         <td>
@@ -36,11 +36,15 @@
         <td>
             {{ suplemento.origen }}
         </td>
-     </tr>
-     {% endfor %}
-     </tbody>
+        <td>
+            <a class="btn btn-danger" href="{% url 'eliminarSuplemento' suplemento.id %}">Eliminar</a>
+            <a class="btn btn-success" href="{% url 'editarSuplemento' suplemento.id %}">Editar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
 </table>
 
-<h3> {{ mensaje }} </h3>
+
 
 {% endblock %}

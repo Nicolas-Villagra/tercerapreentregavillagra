@@ -1,0 +1,20 @@
+{% extends "gimnasioApp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %} Editar Suplemento: {{ suplemento }} {% endblock %}
+
+{% block contenidocambia %}
+<h5> {{ mensaje }} </h5>
+
+<form action="{% url 'editarSuplemento' suplemento.id %}" method="POST"> {% csrf_token %}
+
+    {{ formulario.as_p }}
+
+    <input type="submit" value="Guardar">
+
+    </form>
+
+
+
+{% endblock %}

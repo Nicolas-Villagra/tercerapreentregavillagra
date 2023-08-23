@@ -8,42 +8,43 @@
 
 <h3> Formulario </h3>
 
-<form action = "{% url 'curso' %}" method="POST"> {% csrf_token %}
+<form action="{% url 'curso' %}" method="POST"> {% csrf_token %}
 
     {{ formulario.as_p }}
 
 <input type="submit" value="Guardar">
 </form>
+<h3> {{ mensaje }} </h3>
 <table>
     <thead>
         <tr>
-        <tr>Nombre    </tr>
-        <tr>Categoria    </tr>
-        <tr>Turno    </tr>
-        <tr>Opciones    </tr>
+        <th>Nombre</th>
+        <th>Categoria</th>
+        <th>Turno</th>
+        <th>Opciones</th>
         </tr>
     </thead>
-    </tbody>
-
-
-
-
-         {% for curso in cursos %}
+    <tbody>
+        {% for curso in cursos %}
         <tr>
         <td>
             {{ curso.nombre }}
         </td>
         <td>
-               {{ curso.categoria }}       
+            {{ curso.categoria }}       
         </td>
         <td>
             {{ curso.turno }}
         </td>
-     </tr>
-     {% endfor %}
-     </tbody>
+        <td>
+            <a class="btn btn-danger" href="{% url 'eliminarCurso' curso.id %}">Eliminar</a>
+            <a class="btn btn-success" href="{% url 'editarCurso' curso.id %}">Editar</a>
+        </td>
+        </tr>
+    {% endfor %}
+    </tbody>
 </table>
 
-<h3> {{ mensaje }} </h3>
+
 
 {% endblock %}

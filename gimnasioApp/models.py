@@ -30,10 +30,10 @@ class clientes(models.Model):
     celular=models.IntegerField()
     direccion=models.CharField(max_length=50)
     def __str__(self):
-        return f"{self.nombre} - {self.apellido}"
+        return f"{self.nombre} - {self.apellido} {self.direccion}"
     
 class suplementos(models.Model):
     marca=models.CharField(max_length=30)
     origen=models.CharField(max_length=30)
     def __str__(self):
-        return f"{self.marca} - {self.origen}"
+        return f"{self.marca}"

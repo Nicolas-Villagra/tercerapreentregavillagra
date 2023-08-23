@@ -8,13 +8,48 @@
 
 <h5> Formulario </h5>
 
-<form action = "{% url 'cliente' %}" method = "POST"> {% csrf_token %}
+<form action="{% url 'cliente' %}" method="POST"> {% csrf_token %}
     
-    {{ formulario.as_table }}
+{{ formulario.as_p }}
     
 <input type="submit" value="Guardar">
 </form>
-
 <h5> {{ mensaje }} </h5>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Celular</th>
+            <th>Direccion</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    </tbody>
+    {% for cliente in clientes %}
+        <tr>
+            <td>
+                {{ cliente.nombre }}
+            </td>
+            <td>
+                {{ cliente.apellido }}
+            </td>
+            <td>
+                {{ cliente.celular }}
+            </td>
+            <td>
+                 {{ cliente.direccion }}
+            </td>
+            <td>
+                <a class="btn btn-danger" href="{% url 'eliminarCliente' cliente.id %}">Eliminar</a>
+                <a class="btn btn-success" href="{% url 'editarCliente' cliente.id %}">Editar</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
 
 {% endblock %}
