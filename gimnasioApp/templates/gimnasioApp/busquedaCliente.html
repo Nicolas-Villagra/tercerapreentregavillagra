@@ -2,18 +2,17 @@
 
 {% load static %}
 
-{% block titulo %} Busqueda Cliente {% endblock %}
+{% block titulo %} Busqueda Cliente {% endblock titulo %}
 
 {% block contenido_que_cambia %}
 
 <form action="{% url 'buscar' %}" method="GET"> 
 
-    <input type="text" name="nombre" id="nombre" placeholder="Inserte Nombre">
+    <input type="text" name="nombre" id="nombre" placeholder="Insertar Nombre">
 
     <input type="submit" value="buscar">
 
 
 </form>
-<h5>{{ mensaje }}</h5>
     
-{% endblock %}
+{% endblock contenido_que_cambia %}

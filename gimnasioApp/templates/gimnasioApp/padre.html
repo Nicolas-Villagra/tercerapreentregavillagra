@@ -36,7 +36,7 @@
                     <div class="col-xl-6">
                         <div class="text-center text-white">
                             <!-- Page heading-->
-                            <h1 class="mb-5">{% block titulo %} {% endblock %}</h1>
+                            <h1 class="mb-5">{% block titulo %} {% endblock titulo %}</h1>
                             <!-- Signup form-->
                             <!-- * * * * * * * * * * * * * * *-->
                             <!-- * * SB Forms Contact Form * *-->
@@ -51,9 +51,9 @@
                 </div>
             </div>
         </header>
-        {% block contenidocambia %}
+        {% block contenido_que_cambia %}
 
-        {% endblock %}
+        {% endblock contenido_que_cambia %}
         <!-- Icons Grid-->
         <section class="features-icons bg-light text-center">
             <div class="container">

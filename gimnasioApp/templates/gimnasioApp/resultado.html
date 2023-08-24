@@ -2,9 +2,9 @@
 
 {% load static %}
 
-{% block titulo %} Busqueda  {% endblock %}
+{% block titulo %} Busqueda finalizada  {% endblock titulo %}
 
-{% block contenidocambia %}
+{% block contenido_que_cambia %}
 
 {% if clientes %}
 
@@ -20,7 +20,8 @@
 
     <h5> No se encontraron resultados </h5>
 
+
 {% endif %}
 
 
-{% endblock %}
+{% endblock contenido_que_cambia %}

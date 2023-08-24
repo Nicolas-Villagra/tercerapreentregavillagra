@@ -10,9 +10,9 @@ def busquedaCliente(request):
     return render (request, "gimnasioApp/busquedaCliente.html")
 
 def buscar(request):
-    apellido=request.GET["nombre"]
-    if apellido!="":
-       cliente=clientes.objects.filter(apellido__icontains=nombre)
+    nombre=request.GET["nombre"]
+    if nombre!="":
+       cliente=clientes.objects.filter(nombre__icontains=nombre)
        return render(request,"gimnasioApp/resultado.html",{"clientes":cliente})
     else:
         return render (request,"gimnasioApp/busquedaCliente.html")
