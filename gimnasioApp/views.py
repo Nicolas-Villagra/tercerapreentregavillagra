@@ -17,25 +17,6 @@ def buscar(request):
     else:
         return render (request,"gimnasioApp/busquedaCliente.html")
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def curso(request):
     if request.method=="POST":
         form=CursosForm(request.POST) 
@@ -128,10 +109,10 @@ def cliente(request):
 def suplemento(request):
     if request.method=="POST":
         form=SuplementosForm(request.POST)
-        if form.is_valid():
+        if  form.is_valid():
             info=form.cleaned_data
-            marca=form["marca"]
-            origen=form["origen"]
+            marca=info["marca"]
+            origen=info["origen"]
             suplemento= suplementos (marca=marca, origen=origen)
             suplemento.save()
             mensaje="Cargado"
