@@ -1,0 +1,26 @@
+{% extends "gimnasioApp/padre.html" %}
+
+{% load static %}
+
+{% block titulo %} Busqueda  {% endblock %}
+
+{% block contenidocambia %}
+
+{% if clientes %}
+
+<h5> Resultados de la busqueda</h5>
+  
+    {% for cliente in clientes %}
+
+        <h5>{{ cliente.nombre }} - {{ cliente.apellido }} </h5>
+
+    {% endfor %}
+
+{% else %}
+
+    <h5> No se encontraron resultados </h5>
+
+{% endif %}
+
+
+{% endblock %}

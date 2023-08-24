@@ -6,7 +6,7 @@
  
 {% block contenidocambia %}
 
-<h3> Formulario </h3>
+<h5>Formulario - Cursos</h5>
 
 <form action="{% url 'curso' %}" method="POST"> {% csrf_token %}
 
@@ -14,37 +14,6 @@
 
 <input type="submit" value="Guardar">
 </form>
-<h3> {{ mensaje }} </h3>
-<table>
-    <thead>
-        <tr>
-        <th>Nombre</th>
-        <th>Categoria</th>
-        <th>Turno</th>
-        <th>Opciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for curso in cursos %}
-        <tr>
-        <td>
-            {{ curso.nombre }}
-        </td>
-        <td>
-            {{ curso.categoria }}       
-        </td>
-        <td>
-            {{ curso.turno }}
-        </td>
-        <td>
-            <a class="btn btn-danger" href="{% url 'eliminarCurso' curso.id %}">Eliminar</a>
-            <a class="btn btn-success" href="{% url 'editarCurso' curso.id %}">Editar</a>
-        </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-
+<h5>{{ mensaje }}</h5>
 
 {% endblock %}

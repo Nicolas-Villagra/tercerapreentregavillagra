@@ -6,7 +6,7 @@
 
 {% block contenidocambia %}
 
-<h3> Formulario </h3>
+<h5>Formulario - Rutinas</h5>
 
 <form action="{% url 'rutina' %}" method="POST"> {% csrf_token %}
 
@@ -14,34 +14,6 @@
 
 <input type="submit" value="Guardar">
 </form>
-<h3> {{ mensaje }} </h3>
-<table>
-    <thead>
-        <tr>
-        <th>Rutina</th>
-        <th>Nivel</th>
-        <th>Opciones</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for rutina in rutinas %}
-    <tr>
-        <td>
-            {{ rutina.rutina  }}
-        </td>
-
-        <td>
-            {{ rutina.nivel }}
-        </td>
-        <td>
-            <a class="btn btn-danger" href="{% url 'eliminarRutina' rutina.id %}">Eliminar</a>
-            <a class="btn btn-success" href="{% url 'editarRutina' rutina.id %}">Editar</a>
-        </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-
+<h5>{{ mensaje }}</h5>
 
 {% endblock %}

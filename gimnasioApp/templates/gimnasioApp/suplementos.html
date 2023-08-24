@@ -6,7 +6,7 @@
 
 {% block contenidocambia %}
 
-<h3> Formulario </h3>
+<h5>Formulario - Suplementos</h5>
 
 <form action="{% url 'suplementos' %}" method="POST"> {% csrf_token %}
 
@@ -14,37 +14,6 @@
 
 <input type="submit" value="Guardar">
 </form>
-<h3> {{ mensaje }} </h3>
-<table>
-    <thead>
-        <tr>
-        <tr>Marca   </tr>
-
-        <tr>Origen  </tr>
-
-        <tr>Opciones  </tr>
-        </tr>
-    </thead>
-
-    <tbody>
-    {% for suplemento in suplementos %}
-    <tr>
-        <td>
-            {{ suplemento.nombre }}
-        </td>
-
-        <td>
-            {{ suplemento.origen }}
-        </td>
-        <td>
-            <a class="btn btn-danger" href="{% url 'eliminarSuplemento' suplemento.id %}">Eliminar</a>
-            <a class="btn btn-success" href="{% url 'editarSuplemento' suplemento.id %}">Editar</a>
-        </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-
+<h5>{{ mensaje }}</h5>
 
 {% endblock %}
